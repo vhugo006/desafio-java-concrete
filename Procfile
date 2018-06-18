@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -jar app.war
+web: java $JAVA_OPTS -jar desafio-java-0.0.1-SNAPSHOT.war
