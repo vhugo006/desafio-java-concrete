@@ -50,11 +50,11 @@ task stage(type: Copy, dependsOn: [clean, build]) {
     from jar.archivePath
     into project.rootDir
     rename {
-        'app.war'
+        'desafio-java-0.0.1-SNAPSHOT.war'
     }
 }
 stage.mustRunAfter(clean)
 
 clean << {
-    project.file('app.war').delete()
+    project.file('desafio-java-0.0.1-SNAPSHOT.war').delete()
 }
