@@ -1,21 +1,22 @@
 package com.concrete.desafiojava.service.user;
 
-import javax.servlet.http.HttpServletRequest;
+import java.util.Optional;
 
-import com.concrete.desafiojava.api.v1.login.LoginInput;
-import com.concrete.desafiojava.api.v1.user.UserInput;
+import com.concrete.desafiojava.api.v1.login.LoginRequest;
+import com.concrete.desafiojava.api.v1.user.UserRequest;
 import com.concrete.desafiojava.api.v1.user.UserResponse;
 import com.concrete.desafiojava.exception.AuthenticationException;
 import com.concrete.desafiojava.exception.EmailFoundException;
 import com.concrete.desafiojava.exception.InvalidPasswordEmailException;
 import com.concrete.desafiojava.exception.SessionException;
+import com.concrete.desafiojava.exception.UserNotFoundException;
 
 public interface IUserService {
 
-	public UserResponse save(UserInput userResource) throws EmailFoundException;
+	public Optional<UserResponse> save(UserRequest userRequest) throws EmailFoundException;
 
-	public UserResponse login(LoginInput loginInput) throws InvalidPasswordEmailException;
+	public Optional<UserResponse> login(LoginRequest loginRequest) throws InvalidPasswordEmailException;
 
-	public UserResponse findUser(String id, HttpServletRequest request) throws AuthenticationException, SessionException;
+	public Optional<UserResponse> findUser(String id, String header) throws AuthenticationException, SessionException, UserNotFoundException;
 
 }

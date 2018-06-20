@@ -3,13 +3,13 @@ package com.concrete.desafiojava.exception;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
-@Getter
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
-public class MessageErrorResponse {
+@Getter
+public class ErrorObject {
 
-	private String message;
+    private final String message;
+    private final String field;
+    private final Object parameter;
 }

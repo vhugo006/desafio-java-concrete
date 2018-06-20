@@ -17,7 +17,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import com.concrete.desafiojava.api.v1.user.UserInput;
+import com.concrete.desafiojava.api.v1.user.UserRequest;
 import com.concrete.desafiojava.domain.orm.ApplicationUser;
 import com.concrete.desafiojava.service.token.ITokenService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -35,7 +35,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 	@Override
 	public Authentication attemptAuthentication(HttpServletRequest req, HttpServletResponse res) throws AuthenticationException {
 		try {
-			UserInput creds = new ObjectMapper().readValue(req.getInputStream(), UserInput.class);
+			UserRequest creds = new ObjectMapper().readValue(req.getInputStream(), UserRequest.class);
 
 			return authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(creds.getEmail(), creds.getPassword(), new ArrayList<>()));
 		} catch (IOException e) {

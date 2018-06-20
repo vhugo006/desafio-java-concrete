@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -23,7 +24,6 @@ public class ApplicationUser {
 	@Id
 	@GeneratedValue
 	private Long id;
-
 	private String uuid;
 	private String name;
 	private String email;
@@ -31,7 +31,9 @@ public class ApplicationUser {
 	private Date created;
 	private Date modified;
 	private Date lastLogin;
-	private String token;	
+	private String token;
+	
+	@Transient
 	private String noCryptToken;
 
 }

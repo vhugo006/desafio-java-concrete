@@ -1,13 +1,10 @@
 package com.concrete.desafiojava.service.token;
 
 import static com.concrete.desafiojava.api.v1.security.SecurityConstants.EXPIRATION_TIME;
-import static com.concrete.desafiojava.api.v1.security.SecurityConstants.HEADER_STRING;
 import static com.concrete.desafiojava.api.v1.security.SecurityConstants.SECRET;
 import static com.concrete.desafiojava.api.v1.security.SecurityConstants.TOKEN_PREFIX;
 
 import java.util.Date;
-
-import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -39,10 +36,9 @@ public class TokenServiceImpl implements ITokenService {
 	}
 
 	@Override
-	public String getToken(HttpServletRequest request) {
+	public String getToken(String headerContainingTonken) {
 
-		String token = request.getHeader(HEADER_STRING);
-		return token.replace(TOKEN_PREFIX, "");
+		return headerContainingTonken.replace(TOKEN_PREFIX, "");
 	}
 
 	@Override

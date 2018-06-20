@@ -1,8 +1,7 @@
 package com.concrete.desafiojava.security;
 
-import static com.concrete.desafiojava.api.v1.security.SecurityConstants.SAVE_USER_URL;
-import static com.concrete.desafiojava.api.v1.security.SecurityConstants.H2_CONSOLE;
 import static com.concrete.desafiojava.api.v1.security.SecurityConstants.LOGIN_URL;
+import static com.concrete.desafiojava.api.v1.security.SecurityConstants.SAVE_USER_URL;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
@@ -31,7 +30,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		
-		http.cors().and().csrf().disable().authorizeRequests().antMatchers(HttpMethod.POST, SAVE_USER_URL, H2_CONSOLE, LOGIN_URL).permitAll().anyRequest().authenticated().and()
+		http.cors().and().csrf().disable().authorizeRequests().antMatchers(HttpMethod.POST, SAVE_USER_URL, LOGIN_URL).permitAll().anyRequest().authenticated().and()
 				.addFilter(new JWTAuthenticationFilter(authenticationManager())).addFilter(new JWTAuthorizationFilter(authenticationManager()))
 				// this disables session creation on Spring Security
 				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);

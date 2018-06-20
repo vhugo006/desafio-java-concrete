@@ -1,4 +1,4 @@
-package com.concrete.desafiojava.api.v1.user;
+package com.concrete.desafiojava.api.v1.login;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,9 +9,8 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class PhoneResponse {
+public class LoginRequest {
 
-	private String number;
-	private String ddd;
-
+	private String email;
+	private String password;
 }

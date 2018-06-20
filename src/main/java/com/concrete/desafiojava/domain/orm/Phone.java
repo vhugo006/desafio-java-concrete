@@ -26,36 +26,7 @@ public class Phone {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "ID_USER", nullable = false)
 	private ApplicationUser user;
-	
 	private String number;
 	private String ddd;
-
-	public String getNumber() {
-		return number;
-	}
-
-	public void setNumber(String number) {
-		this.number = number;
-	}
-
-	public String getDdd() {
-		return ddd;
-	}
-
-	public void setDdd(String ddd) {
-		this.ddd = ddd;
-	}
-
-	public ApplicationUser getUser() {
-		return user;
-	}
-
-	public void setUser(ApplicationUser user) {
-		this.user = user;
-	}
-
-	public Long getId() {
-		return id;
-	}
 
 }
