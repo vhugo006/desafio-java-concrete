@@ -44,10 +44,6 @@ dependencies {
 	compile('io.jsonwebtoken:jjwt:0.7.0')
 	compile('com.h2database:h2')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
-	
-	//compile('net.logstash.logback:logstash-logback-encoder')
-	//compile('com.github.jsimone:webapp-runner:8.5.11.3')
-	//providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
 }
 
 
